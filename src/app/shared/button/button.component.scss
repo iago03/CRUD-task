@@ -1,0 +1,30 @@
+button {
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px;
+  background: #7c7cf6;
+  opacity: 0.7;
+  display: inline-block;
+  cursor: pointer;
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+.add {
+  background-color: green;
+  margin-bottom: 15px;
+  padding: 10px 50px;
+}
+
+.delete {
+  background-color: red;
+}
+
+.edit {
+  background-color: orange !important;
+}

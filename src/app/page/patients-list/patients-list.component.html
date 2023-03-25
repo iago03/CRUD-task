@@ -1,1 +1,37 @@
-<p>patients-list works!</p>
+<main>
+  <app-button (click)="updateOrAddPatients(item)" buttonClass="add"
+    >Add</app-button
+  >
+  <section>
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let item of titleArray">
+            {{ item }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemArrayObject">
+          <td>{{ item.name }}</td>
+          <td>{{ item.surname }}</td>
+          <td>{{ item.personalNumber }}</td>
+          <td>{{ item.birthDate }}</td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.city }}</td>
+          <td>{{ item.address }}</td>
+          <td>
+            <app-button (click)="updateOrAddPatients(item)" buttonClass="edit"
+              >Update</app-button
+            >
+          </td>
+          <td>
+            <app-button (click)="updateOrAddPatients(item)" buttonClass="delete"
+              >Delete</app-button
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

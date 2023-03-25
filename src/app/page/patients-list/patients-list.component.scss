@@ -1,0 +1,32 @@
+main {
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+section {
+  background-color: white;
+  border: 1px solid #b7c3ce;
+  border-radius: 10px;
+  padding: 15px;
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    td,
+    th {
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    td {
+      font-size: 13px;
+    }
+
+    thead {
+      border-bottom: 2.5px solid rgb(231, 231, 231);
+    }
+
+    tr {
+      border-bottom: 0.5px solid rgb(243, 244, 246);
+    }
+  }
+}

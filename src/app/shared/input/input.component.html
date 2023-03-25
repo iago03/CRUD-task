@@ -1,0 +1,12 @@
+<div class="form-input">
+  <label [for]="inputId">{{ label }}</label>
+  <input
+    [id]="inputId"
+    [type]="inputType"
+    [(ngModel)]="value"
+    [ngClass]="{ 'ng-invalid': control?.invalid && control?.dirty }"
+    (focus)="focus()"
+    (keyup)="onKey()"
+    (blur)="onBlur()"
+  />
+</div>
