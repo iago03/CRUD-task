@@ -1,44 +1,44 @@
 {
   "list": [
     {
-      "name": "zviadi222",
-      "lastName": "jsaas",
+      "name": "iago",
+      "lastName": "kharatishvili",
       "personalNumber": "60001150255",
-      "birthDate": "1995-12-03",
+      "birthDate": "1995-03-15",
       "gender": "male",
       "city": "tbilisi",
-      "address": "asd",
-      "id": 8
+      "address": "tsintsadze",
+      "id": 1
     },
     {
-      "name": "badri",
-      "lastName": "jvania",
-      "personalNumber": "60001150255",
-      "birthDate": "1995-12-03",
+      "name": "giorgi",
+      "lastName": "kharatishvili",
+      "personalNumber": "60001515165",
+      "birthDate": "1991-04-07",
       "gender": "male",
-      "city": "zugdidi",
-      "address": "asd",
-      "id": 9
+      "city": "tbilisi",
+      "address": "gldani",
+      "id": 2
     },
     {
-      "name": "hshs",
-      "lastName": "aasd",
-      "personalNumber": "60001150255",
-      "birthDate": "1995-11-03",
+      "name": "vaxo",
+      "lastName": "gagnidze",
+      "personalNumber": "01115211253",
+      "birthDate": "1998-05-16",
       "gender": "male",
-      "city": "zugdidi",
-      "address": "asd",
-      "id": 10
+      "city": "tbilisi",
+      "address": "vajafshavela",
+      "id": 3
     },
     {
-      "name": "asd2",
-      "lastName": "asd",
-      "personalNumber": "60001150255",
-      "birthDate": "1995-12-03",
-      "gender": "female",
-      "city": "zugdidi",
-      "address": "asd",
-      "id": 11
+      "name": "lika",
+      "lastName": "gunashvili",
+      "personalNumber": "01021452322",
+      "birthDate": "2000-05-01",
+      "gender": "male",
+      "city": "tbilisi",
+      "address": "wereteli",
+      "id": 4
     }
   ]
 }
