@@ -5,12 +5,14 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalService } from 'src/app/service/modal.service';
 import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 import { City, Gender } from 'src/app/shared/interface/title';
 import { isValidDate } from 'src/app/shared/validators/date.validators';
 
+@UntilDestroy()
 @Component({
   selector: 'app-edit-modal',
   templateUrl: './edit-modal.component.html',
@@ -18,7 +20,7 @@ import { isValidDate } from 'src/app/shared/validators/date.validators';
 })
 export class EditModalComponent {
   patientsInfoForm!: FormGroup;
-  message = false;
+  message!: string;
   city = City;
   gender = Gender;
   @Input() item!: HttpResponse | undefined;
@@ -49,6 +51,18 @@ export class EditModalComponent {
       city: new FormControl(this.item?.city || '', Validators.required),
       address: new FormControl(this.item?.address || '', Validators.required),
     });
+    this.changePersonalNumber();
+  }
+
+  changePersonalNumber() {
+    this.patientsInfoForm
+      .get('personalNumber')
+      ?.valueChanges.pipe(untilDestroyed(this))
+      .subscribe(() => {
+        if (this.message) {
+          this.message = '';
+        }
+      });
   }
 
   closeModal() {
@@ -58,19 +72,19 @@ export class EditModalComponent {
 
   save() {
     if (this.patientsInfoForm.valid) {
-      this.item?.id
-        ? this.httpService
-            .editPatients(this.patientsInfoForm.value, this.item.id)
-            .subscribe(() => {
-              this.httpService.getList$.next(true);
-              this.modalService.modal.emit(false);
-            })
-        : this.httpService
-            .addPatients(this.patientsInfoForm.value)
-            .subscribe(() => {
-              this.httpService.getList$.next(true);
-              this.modalService.modal.emit(false);
-            });
+      const id = this.item?.id ? this.item.id : null;
+      this.httpService
+        .addEditPatients(this.patientsInfoForm.value, id)
+        .pipe(untilDestroyed(this))
+        .subscribe({
+          next: () => {
+            this.httpService.getList$.next(true);
+            this.modalService.modal.emit(false);
+          },
+          error: (error) => {
+            this.message = error.error.error;
+          },
+        });
     } else {
       this.markFormAsDirty(this.patientsInfoForm);
     }

@@ -11,7 +11,7 @@ export class HttpService {
   getList$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public modal: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(public http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getPatientsList() {
     return this.getList$.pipe(
@@ -19,13 +19,10 @@ export class HttpService {
     );
   }
 
-  addPatients(item: HttpResponse) {
-    return this.http.post<HttpResponse[]>(`${environment.api_url}`, item);
-  }
-
-  editPatients(item: HttpResponse, id: number) {
-    console.log(item);
-    return this.http.put<HttpResponse[]>(`${environment.api_url}/${id}`, item);
+  addEditPatients(item: HttpResponse, id: number | null) {
+    return id
+      ? this.http.put<HttpResponse[]>(`${environment.api_url}/${id}`, item)
+      : this.http.post<HttpResponse[]>(`${environment.api_url}`, item);
   }
 
   deletePatients(id: number | undefined) {

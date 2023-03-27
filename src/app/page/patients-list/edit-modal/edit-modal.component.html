@@ -5,7 +5,7 @@
     </div>
 
     <h2>{{ item ? "Edit" : "Add" }}</h2>
-    <p *ngIf="message" class="success">success</p>
+    <p *ngIf="message" class="error">{{ message }}</p>
 
     <article>
       <app-input

@@ -1,5 +1,5 @@
 export const Title = [
-  'ame',
+  'Name',
   'Last Name',
   'Personal Number',
   'Birth Date',
