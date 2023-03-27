@@ -3,6 +3,7 @@
     >Add</app-button
   >
   <section>
+    <app-edit-modal *ngIf="modalShow" [item]="item"></app-edit-modal>
     <table class="table">
       <thead>
         <tr>
@@ -13,13 +14,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of itemArrayObject">
-          <td>{{ item.name }}</td>
-          <td>{{ item.surname }}</td>
-          <td>{{ item.personalNumber }}</td>
-          <td>{{ item.birthDate }}</td>
-          <td>{{ item.gender }}</td>
-          <td>{{ item.city }}</td>
-          <td>{{ item.address }}</td>
+          <td>{{ item?.name }}</td>
+          <td>{{ item?.lastName }}</td>
+          <td>{{ item?.personalNumber }}</td>
+          <td>{{ item?.birthDate }}</td>
+          <td>{{ item?.gender }}</td>
+          <td>{{ item?.city }}</td>
+          <td>{{ item?.address }}</td>
           <td>
             <app-button (click)="updateOrAddPatients(item)" buttonClass="edit"
               >Update</app-button

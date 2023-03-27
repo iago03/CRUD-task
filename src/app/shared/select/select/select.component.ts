@@ -6,55 +6,40 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  selector: 'app-select',
+  templateUrl: './select.component.html',
+  styleUrls: ['./select.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: InputComponent,
+      useExisting: SelectComponent,
       multi: true,
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor {
-  try = 0;
+export class SelectComponent implements ControlValueAccessor {
   value!: string;
+  chosen = true;
   @Input() label!: string;
-  @Input() inputType!: string;
-  @Input() inputId!: string;
+  @Input() name!: string;
+  @Input() id!: string;
+  @Input() array!: Array<any>;
   @Input() control!: AbstractControl | null;
 
   onChange!: (value: any) => void;
   onTouched!: () => void;
 
+  constructor() {}
+
   writeValue(obj: any): void {
     this.value = obj;
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
-  }
-
-  onKey() {
-    this.onChange(this.value);
-    if (this.try > 0) {
-      this.onTouched();
-    }
-  }
-
-  focus() {
-    this.onTouched();
-  }
-
-  onBlur() {
-    this.onTouched();
-    this.try += 1;
-  }
-
-  change() {
-    this.onChange(this.value);
   }
 }

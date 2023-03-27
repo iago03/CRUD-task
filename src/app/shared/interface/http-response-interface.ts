@@ -1,7 +1,7 @@
 export interface HttpResponse {
   id?: number;
   name: string;
-  surname: string;
+  lastName: string;
   personalNumber: number;
   birthDate: string;
   gender: string;

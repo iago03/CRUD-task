@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 import { Title } from 'src/app/shared/interface/title';
 
@@ -18,9 +18,9 @@ export class PatientsListComponent implements OnInit {
   itemArrayObject = [
     {
       name: 'iago',
-      surname: 'kharatishvili',
+      lastName: 'kharatishvili',
       personalNumber: 60001150255,
-      birthDate: '15-03-1995',
+      birthDate: '1995-03-15',
       gender: 'male',
       city: 'tbilisi',
       address: 'cincadze',

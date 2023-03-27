@@ -1,0 +1,11 @@
+<label for="{{ id }}">{{ label }}</label>
+
+<select
+  [(ngModel)]="value"
+  (change)="onChange($any($event.target).value)"
+  name="{{ name }}"
+  id="{{ id }}"
+>
+  <option selected="selected">{{ value }}</option>
+  <option *ngFor="let item of array" value="{{ item }}">{{ item }}</option>
+</select>

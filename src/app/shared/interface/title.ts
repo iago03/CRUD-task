@@ -1,9 +1,13 @@
 export const Title = [
-  'name',
-  'surname',
-  'personalNumber',
-  'birthDate',
-  'gender',
-  'city',
-  'address',
+  'ame',
+  'Last Name',
+  'Personal Number',
+  'Birth Date',
+  'Gender',
+  'City',
+  'Address',
 ];
+
+export const Gender = ['male', 'female'];
+
+export const City = ['tbilisi', 'zugdidi', 'batumi', 'foti'];

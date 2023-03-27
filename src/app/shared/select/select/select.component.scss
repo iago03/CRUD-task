@@ -1,0 +1,30 @@
+label {
+  margin: 0px 0px 8px;
+  display: inline-block;
+  color: rgb(85, 85, 85);
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 4px 5px 4px 10px;
+  border: 1.5px solid #b8e0ff;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+  &.invalid {
+    border: 1.5px solid red;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+  &:focus {
+    border-color: #008fff;
+  }
+
+  option:checked {
+    display: none;
+  }
+}

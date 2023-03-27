@@ -5,6 +5,7 @@
     [type]="inputType"
     [(ngModel)]="value"
     [ngClass]="{ 'ng-invalid': control?.invalid && control?.dirty }"
+    (change)="change()"
     (focus)="focus()"
     (keyup)="onKey()"
     (blur)="onBlur()"

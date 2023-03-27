@@ -1,0 +1,69 @@
+<main>
+  <form [formGroup]="patientsInfoForm">
+    <div class="menu-btn" (click)="closeModal()">
+      <div class="burger-btn"></div>
+    </div>
+
+    <h2>{{ item ? "Edit" : "Add" }}</h2>
+    <p *ngIf="message" class="success">success</p>
+
+    <article>
+      <app-input
+        formControlName="name"
+        label="Name"
+        inputType="text"
+        inputId="name"
+        [control]="patientsInfoForm.get('name')"
+      ></app-input>
+      <app-input
+        formControlName="lastName"
+        label="Last name"
+        inputType="text"
+        inputId="lastName"
+        [control]="patientsInfoForm.get('lastName')"
+      ></app-input>
+      <app-input
+        formControlName="personalNumber"
+        label="Personal number"
+        inputType="number"
+        inputId="personalNumber"
+        [control]="patientsInfoForm.get('personalNumber')"
+      ></app-input>
+      <app-input
+        formControlName="birthDate"
+        label="Birth date"
+        inputType="date"
+        inputId="birthDate"
+        [control]="patientsInfoForm.get('birthDate')"
+      ></app-input>
+      <app-select
+        [array]="gender"
+        [label]="'Gender'"
+        [name]="'gender'"
+        [id]="'gender'"
+        formControlName="gender"
+        [control]="patientsInfoForm.get('gender')"
+      >
+      </app-select>
+      <app-select
+        [array]="city"
+        [label]="'City'"
+        [name]="'city'"
+        [id]="'city'"
+        formControlName="city"
+        [control]="patientsInfoForm.get('city')"
+      >
+      </app-select>
+      <app-input
+        formControlName="address"
+        label="Address"
+        inputType="text"
+        inputId="address"
+        [control]="patientsInfoForm.get('address')"
+      ></app-input>
+    </article>
+    <article class="button-array">
+      <app-button (click)="save()" buttonClass="add">save</app-button>
+    </article>
+  </form>
+</main>

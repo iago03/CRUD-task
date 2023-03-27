@@ -2,18 +2,18 @@
   label {
     display: inline-block;
     color: rgb(85, 85, 85);
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
 
   input {
     display: block;
     width: 100%;
-    padding: 8px 5px 8px 20px;
+    padding: 5px 5px 5px 10px;
     border: 1.5px solid #b8e0ff;
     border-radius: 5px;
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     &:focus-visible {
       outline: none;
     }
