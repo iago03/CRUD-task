@@ -31,7 +31,7 @@
       "id": 10
     },
     {
-      "name": "asd",
+      "name": "asd2",
       "lastName": "asd",
       "personalNumber": "60001150255",
       "birthDate": "1995-12-03",
@@ -39,16 +39,6 @@
       "city": "zugdidi",
       "address": "asd",
       "id": 11
-    },
-    {
-      "name": "a",
-      "lastName": "a",
-      "personalNumber": "1995",
-      "birthDate": "1995-12-19",
-      "gender": "male",
-      "city": "tbilisi",
-      "address": "asd",
-      "id": 12
     }
   ]
 }

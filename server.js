@@ -16,7 +16,7 @@ server.use((req, res, next) => {
     const { personalNumber } = req.body;
     const existingUser = users.find(user => user.personalNumber === personalNumber);
     if (existingUser) {
-      return res.status(409).json({ error: 'User with this personal number already exists' });
+      return res.status(409).json({ error: 'იუზერი ესეთი პირადი ნომრით უკვე რეგისტრირებულია' });
     }
   }
   next();
