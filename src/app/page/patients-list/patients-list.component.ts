@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpService } from 'src/app/service/http.service';
+import { ModalService } from 'src/app/service/modal.service';
 import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 import { Title } from 'src/app/shared/interface/title';
 
@@ -15,24 +17,23 @@ export class PatientsListComponent implements OnInit {
 
   item!: HttpResponse | undefined;
 
-  itemArrayObject = [
-    {
-      name: 'iago',
-      lastName: 'kharatishvili',
-      personalNumber: 60001150255,
-      birthDate: '1995-03-15',
-      gender: 'male',
-      city: 'tbilisi',
-      address: 'cincadze',
-    },
-  ];
+  constructor(
+    private httpService: HttpService,
+    public modalService: ModalService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.itemArray$ = this.httpService.getPatientsList();
+  }
 
   updateOrAddPatients(item?: HttpResponse) {
-    this.modalShow = true;
+    this.modalService.modal.next(true);
     this.item = item;
+  }
+
+  deletePatients(id: number | undefined) {
+    this.httpService
+      .deletePatients(id)
+      .subscribe(() => this.httpService.getList$.next(true));
   }
 }

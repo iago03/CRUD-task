@@ -3,6 +3,7 @@
 <select
   [(ngModel)]="value"
   (change)="onChange($any($event.target).value)"
+  [ngClass]="{ 'ng-invalid': control?.invalid && control?.dirty }"
   name="{{ name }}"
   id="{{ id }}"
 >

@@ -1,9 +1,10 @@
 <main>
-  <app-button (click)="updateOrAddPatients(item)" buttonClass="add"
-    >Add</app-button
-  >
+  <app-button (click)="updateOrAddPatients()" buttonClass="add">Add</app-button>
   <section>
-    <app-edit-modal *ngIf="modalShow" [item]="item"></app-edit-modal>
+    <app-edit-modal
+      *ngIf="modalService.modal | async"
+      [item]="item"
+    ></app-edit-modal>
     <table class="table">
       <thead>
         <tr>
@@ -12,8 +13,8 @@
           </th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let item of itemArrayObject">
+      <tbody *ngIf="itemArray$ | async as itemArray">
+        <tr *ngFor="let item of itemArray">
           <td>{{ item?.name }}</td>
           <td>{{ item?.lastName }}</td>
           <td>{{ item?.personalNumber }}</td>
@@ -27,7 +28,7 @@
             >
           </td>
           <td>
-            <app-button (click)="updateOrAddPatients(item)" buttonClass="delete"
+            <app-button (click)="deletePatients(item.id)" buttonClass="delete"
               >Delete</app-button
             >
           </td>

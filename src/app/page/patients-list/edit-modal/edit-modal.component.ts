@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { HttpService } from 'src/app/service/http.service';
+import { ModalService } from 'src/app/service/modal.service';
 import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 import { City, Gender } from 'src/app/shared/interface/title';
 import { isValidDate } from 'src/app/shared/validators/date.validators';
@@ -21,7 +23,11 @@ export class EditModalComponent {
   gender = Gender;
   @Input() item!: HttpResponse | undefined;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private httpService: HttpService,
+    public modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -46,13 +52,25 @@ export class EditModalComponent {
   }
 
   closeModal() {
-    // this.modalService.modal.emit(false);
-    // this.patientsInfoForm.reset();
+    this.modalService.modal.emit(false);
+    this.patientsInfoForm.reset();
   }
 
   save() {
     if (this.patientsInfoForm.valid) {
-      console.log(this.patientsInfoForm.value);
+      this.item?.id
+        ? this.httpService
+            .editPatients(this.patientsInfoForm.value, this.item.id)
+            .subscribe(() => {
+              this.httpService.getList$.next(true);
+              this.modalService.modal.emit(false);
+            })
+        : this.httpService
+            .addPatients(this.patientsInfoForm.value)
+            .subscribe(() => {
+              this.httpService.getList$.next(true);
+              this.modalService.modal.emit(false);
+            });
     } else {
       this.markFormAsDirty(this.patientsInfoForm);
     }

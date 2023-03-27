@@ -1,0 +1,34 @@
+{
+  "list": [
+    {
+      "name": "iago250",
+      "lastName": "kharatishvili",
+      "personalNumber": 60001150255,
+      "birthDate": "1995-03-15",
+      "gender": "male",
+      "city": "tbilisi",
+      "address": "cincadze",
+      "id": 1
+    },
+    {
+      "name": "iago700",
+      "lastName": "kharatishvili",
+      "personalNumber": 60001150255,
+      "birthDate": "1995-03-15",
+      "gender": "male",
+      "city": "tbilisi",
+      "address": "cincadze",
+      "id": 3
+    },
+    {
+      "name": "iago23",
+      "lastName": "Kharatishvili",
+      "personalNumber": "60001150255",
+      "birthDate": "1995-12-05",
+      "gender": "female",
+      "city": "zugdidi",
+      "address": "aaadas",
+      "id": 4
+    }
+  ]
+}
