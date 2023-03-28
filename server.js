@@ -10,11 +10,12 @@ server.use((req, res, next) => {
   next();
 });
 server.use((req, res, next) => {
-  if (req.method === 'POST' && req.url === '/list') {
+  if (req.method === 'POST' || req.method === 'PUT') {
     const db = router.db;
     const users = db.get('list').value();
     const { personalNumber } = req.body;
-    const existingUser = users.find(user => user.personalNumber === personalNumber);
+    const { id } = req.body;
+    const existingUser = users.find(user => user.personalNumber === personalNumber && user.id !== id);
     if (existingUser) {
       return res.status(409).json({ error: 'იუზერი ესეთი პირადი ნომრით უკვე რეგისტრირებულია' });
     }
